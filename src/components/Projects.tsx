@@ -1,5 +1,5 @@
 'use client'
-import { FolderGit2 } from 'lucide-react'
+import { FolderGit2, CalendarDays, BarChart3, Database, Users, ShieldCheck, MailCheck, Wrench, Banknote, Landmark } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 
@@ -8,26 +8,28 @@ const PROYECTOS = [
     titulo: "Gestión de Cobros y TPV Virtual",
     subtitulo: "Dashboard Financiero",
     descripcion: "Ecosistema integral de facturación con generación de payment links dinámicos, conciliación automatizada y flujos de cobro desatendidos.",
-    tags: [ "Next.js","React", "Node.js", "Material ui" , "LDAP" ,"SQL SERVER", "OAuth 2.0", "TPV", "REST APIs" , "INTEGRACIÓN CON TERCEROS" , "EXPORTACIÓN A EXCEL", "ESTADÍSTICAS AUTOMÁTICAS"],
+    tags: ["Next.js", "React", "Node.js", "Material UI", "LDAP", "SQL Server", "OAuth 2.0", "TPV", "REST APIs", "Integración con terceros", "Exportación a Excel", "Estadísticas Automáticas"],
     color: "#00f5d4",
+    icono: Landmark,
     imagenes: [
       "/projects/tpv/tpv1-2.png",
       "/projects/tpv/tpv2-2.png",
       "/projects/tpv/tpv3-2.png",
       "/projects/tpv/tpv4-2.png",
-      "/projects/tpv/tpv5.png",
+      "/projects/tpv/tpv5-2.png",
       "/projects/tpv/tpv6.png",
       "/projects/tpv/tpv7.png",
       "/projects/tpv/tpv8.png",
       "/projects/tpv/tpv9.png"
     ],
   },
-    {
+  {
     titulo: "Web Docentes",
-    subtitulo: "Almecenamiento información docentes",
-    descripcion: "Web a gran escala de información , a la cual solo se puede acceder por invitación , una vez me invitan , valido mi usuario y inicio sesión , rellenare mis datos para optar a ser seleccionado como docente valido.",
-    tags: ["Laravel", "PHP", "Node.js", "SQL Server", "LDAP", "OAuth 2.0", "Validación" , "Envio de emails" , "Securización", "BOOSTRAP"],
+    subtitulo: "Almacenamiento información docentes",
+    descripcion: "Web a gran escala de información, a la cual solo se puede acceder por invitación, una vez me invitan, valido mi usuario e inicio sesión, rellenaré mis datos para optar a ser seleccionado como docente válido.",
+    tags: ["Laravel", "PHP", "Node.js", "SQL Server", "LDAP", "OAuth 2.0", "Validación", "Envío de emails", "Securización", "Bootstrap"],
     color: "#00e5ff",
+    icono: Users,
     imagenes: [
       "/projects/wdoc/wdoc1.png",
       "/projects/wdoc/wdoc3.png",
@@ -42,14 +44,15 @@ const PROYECTOS = [
       "/projects/wdoc/wdoc10.png"
     ],
   },
-    {
+  {
     titulo: "Web de Reserva de Visitas",
     subtitulo: "Solicitud de visitas a centro de formación",
-    descripcion: "Solicitudes de visitas online con gestión de calendario para ello , disponible para móvil o escritorio.",
-    tags: ["React", "Tailwind CSS", "MATERIAL UI","NEXT.JS", "Node.js", "OAuth 2.0", "CRON Jobs"],
+    descripcion: "Solicitudes de visitas online con gestión de calendario para ello, disponible para móvil o escritorio.",
+    tags: ["React", "Tailwind CSS", "Material UI", "Next.js", "Node.js", "OAuth 2.0", "CRON Jobs"],
     color: "#00f5d4",
+    icono: CalendarDays,
     imagenes: [
-       "/projects/wvis/wvis1.png",
+      "/projects/wvis/wvis1.png",
       "/projects/wvis/wvis2.png",
       "/projects/wvis/wvis3.png",
     ],
@@ -58,8 +61,9 @@ const PROYECTOS = [
     titulo: "Sistema gestión Homologación Docentes",
     subtitulo: "Sistema de gestión docentes",
     descripcion: "Plataforma de gestión interna a gran escala para administración de departamentos, personal docente y automatización de onboarding.",
-      tags: ["Laravel", "PHP", "Node.js", "SQL Server", "LDAP", "OAuth 2.0", "Validación" , "Envio de emails" , "Securización", "boostrap"],
+    tags: ["Laravel", "PHP", "Node.js", "SQL Server", "LDAP", "OAuth 2.0", "Validación", "Envío de emails", "Securización", "Bootstrap"],
     color: "#00e5ff",
+    icono: Database,
     imagenes: [
       "/projects/doc/doc1.png",
       "/projects/doc/doc2.png",
@@ -78,17 +82,18 @@ const PROYECTOS = [
       "/projects/doc/doc16.png"
     ],
   },
-    {
+  {
     titulo: "Sistema de Reserva de Visitas",
     subtitulo: "Automatización de Agenda",
     descripcion: "Solución web para automatizar el flujo completo de solicitud y confirmación de visitas con recordatorios automáticos y gestión de estados.",
-    tags: ["React", "Tailwind CSS", "Node.js", "OAuth 2.0", "CRON Jobs", "Envío de Emails" , "SQL SERVER", "Material ui"],
+    tags: ["React", "Tailwind CSS", "Node.js", "OAuth 2.0", "CRON Jobs", "Envío de Emails", "SQL Server", "Material UI"],
     color: "#00f5d4",
+    icono: MailCheck,
     imagenes: [
       "/projects/vis/vis1.png",
       "/projects/vis/vis2.png",
       "/projects/vis/vis3.png",
-       "/projects/vis/vis4.png",
+      "/projects/vis/vis4.png",
       "/projects/vis/vis5.png",
       "/projects/vis/vis6.png"
     ],
@@ -97,8 +102,9 @@ const PROYECTOS = [
     titulo: "Orquestador de Infraestructura IT",
     subtitulo: "CMDB Corporativa",
     descripcion: "Plataforma interna de gobernanza tecnológica para mapeo, control y auditoría en tiempo real de servidores, servicios y accesos.",
-    tags: ["React", "Node.js", "BOOSTRAP", "SQL Server", "Dashboard", "EXPORTACIÓN A EXCEL","Seguridad"],
+    tags: ["React", "Node.js", "Bootstrap", "SQL Server", "Dashboard", "Exportación a Excel", "Seguridad"],
     color: "#9333ea",
+    icono: Wrench,
     imagenes: [
       "/projects/gis/gis2-2.png",
       "/projects/gis/gis3-2.png",
@@ -114,11 +120,12 @@ const PROYECTOS = [
     titulo: "Panel de Control de Siniestros",
     subtitulo: "Análisis Multi-Sede",
     descripcion: "Backoffice centralizado para registro, seguimiento y análisis estadístico de incidencias en múltiples infraestructuras corporativas.",
-    tags: ["NEXT.JS","React", "Material ui", "Node.js", "SQL Server", "Analítica", "LDAP"],
+    tags: ["Next.js", "React", "Material UI", "Node.js", "SQL Server", "Analítica", "LDAP"],
     color: "#00e5ff",
+    icono: BarChart3,
     imagenes: [
       "/projects/sin/sin3.png",
-       "/projects/sin/sin1.png",
+      "/projects/sin/sin1.png",
       "/projects/sin/sin2.png",
       "/projects/sin/sin4.png",
     ],
@@ -127,13 +134,14 @@ const PROYECTOS = [
     titulo: "Módulo de Onboarding Automatizado",
     subtitulo: "Alta en un Click",
     descripcion: "Microservicio inteligente de registro y verificación de identidad en un paso que orquesta múltiples plataformas externas en tiempo real.",
-    tags: ["Node.js", "PHP","boostrap", "CodeIgniter", "OAuth 2.0", "REST APIs", "Envío de emails", "INTEGRACIÓN CON TERCEROS" , "SQL SERVER"],
+    tags: ["Node.js", "PHP", "Bootstrap", "CodeIgniter", "OAuth 2.0", "REST APIs", "Envío de emails", "Integración con terceros", "SQL Server"],
     color: "#00f5d4",
+    icono: Landmark,
     imagenes: [
-       "/projects/ac/ac1.png",
-       "/projects/ac/ac2.png",
+      "/projects/ac/ac1.png",
+      "/projects/ac/ac2.png",
       "/projects/ac/ac3.png",
-      "/projects/ac/ac6.png",  
+      "/projects/ac/ac6.png",
       "/projects/ac/ac4.png",
     ],
   },
@@ -141,11 +149,12 @@ const PROYECTOS = [
     titulo: "Sistema IAM y Control de Accesos",
     subtitulo: "Gestión de Identidades",
     descripcion: "Plataforma core de ciberseguridad con sincronización LDAP en tiempo real, auditoría de permisos y motor analítico de consumo de software.",
-    tags: ["React", "NEXT.JS", "Bootstrap", "Node.js", "LDAP", "SQL Server"],
+    tags: ["React", "Next.js", "Bootstrap", "Node.js", "LDAP", "SQL Server"],
     color: "#9333ea",
+    icono: ShieldCheck,
     imagenes: [
-       "/projects/ojo/gis1.png",
-       "/projects/ojo/gis6.png",
+      "/projects/ojo/gis1.png",
+      "/projects/ojo/gis6.png",
       "/projects/ojo/gis2.png",
       "/projects/ojo/gis3.png",
       "/projects/ojo/gis4.png",
@@ -158,10 +167,11 @@ const PROYECTOS = [
     descripcion: "Automatización del flujo de cobros internacionales transfronterizos con conversión de divisas en tiempo real y panel de administración interno.",
     tags: ["Node.js", "React", "Flywire API", "Webhooks", "OAuth 2.0", "SDLC"],
     color: "#00e5ff",
+    icono: Banknote,
     imagenes: [
-          "/projects/fl/fl1.png",
-       "/projects/fl/fl2.png",
-       "/projects/tpv/tpv9.png"
+      "/projects/fl/fl2-2.png",
+      "/projects/fl/fl1-2.png",
+      "/projects/tpv/tpv9.png"
     ],
   }
 ]
@@ -180,6 +190,12 @@ export default function Projects() {
   return (
     <>
       <style>{`
+        .proj-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* Actualizado a 3 columnas para PC */
+          gap: 24px;
+          width: 100%;
+        }
         .proj-card {
           position: relative;
           overflow: hidden;
@@ -188,16 +204,18 @@ export default function Projects() {
           background: #020b1e;
           display: flex;
           flex-direction: column;
-          transition: border-color 0.3s, transform 0.3s;
+          transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
           z-index: 1;
+          height: 100%; /* Asegura consistencia de altura en la fila */
         }
         .proj-card:hover {
           border-color: rgba(0,229,255,0.2);
-          transform: translateY(-2px);
+          transform: translateY(-4px);
+          box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .proj-img-wrap {
           width: 100%;
-          height: 160px;
+          height: 170px;
           position: relative;
           overflow: hidden;
           flex-shrink: 0;
@@ -205,7 +223,7 @@ export default function Projects() {
         }
         .proj-img-placeholder {
           width: 100%;
-          height: 160px;
+          height: 170px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -227,108 +245,152 @@ export default function Projects() {
           position: absolute;
           top: 50%;
           transform: translateY(-50%);
-          z-index: 10;
-          background: rgba(2,11,30,0.7);
-          border: 1px solid rgba(255,255,255,0.1);
+          z-index: 12; /* Corregido: por encima de capas degradadas */
+          background: rgba(2,11,30,0.85);
+          border: 1px solid rgba(255,255,255,0.15);
           border-radius: 50%;
-          width: 28px;
-          height: 28px;
+          width: 32px;
+          height: 32px;
           display: flex;
           align-items: center;
           justify-content: center;
           cursor: pointer;
           color: #fff;
-          transition: background 0.2s, border-color 0.2s;
+          transition: background 0.2s, border-color 0.2s, transform 0.2s, opacity 0.2s;
+          opacity: 0;
         }
-        .slide-btn:hover { background: rgba(0,229,255,0.15); border-color: rgba(0,229,255,0.4); }
+        .proj-card:hover .slide-btn { opacity: 1; }
+        .slide-btn:hover { background: rgba(0,229,255,0.2); border-color: rgba(0,229,255,0.5); transform: translateY(-50%) scale(1.08); }
+        
         .slide-dots {
           position: absolute;
-          bottom: 6px;
+          bottom: 12px;
           left: 50%;
           transform: translateX(-50%);
           display: flex;
-          gap: 4px;
-          z-index: 10;
+          gap: 5px;
+          z-index: 12; /* Corregido para evitar bloqueos de clicks */
+          padding: 4px 10px;
+          background: rgba(2,11,30,0.7);
+          border-radius: 12px;
+          backdrop-filter: blur(4px);
+          border: 1px solid rgba(255,255,255,0.05);
         }
         .slide-dot {
-          width: 5px;
-          height: 5px;
+          width: 6px;
+          height: 6px;
           border-radius: 50%;
           background: rgba(255,255,255,0.3);
           cursor: pointer;
-          transition: background 0.2s;
+          transition: background 0.2s, transform 0.2s;
         }
-        .slide-dot.active { background: #00e5ff; }
+        .slide-dot.active { background: #00e5ff; transform: scale(1.2); }
+        
         .proj-body {
           padding: 20px;
           display: flex;
           flex-direction: column;
-          gap: 10px;
+          gap: 12px;
           flex: 1;
         }
-        .proj-tag {
-          font-size: 9px;
-          color: #475569;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.06);
-          border-radius: 5px;
-          padding: 3px 7px;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          font-family: monospace;
-          transition: border-color 0.2s, color 0.2s;
-          cursor: default;
+        .proj-desc {
+          font-family: sans-serif; 
+          font-size: 11px; 
+          color: #94a3b8; 
+          line-height: 1.7; 
+          letter-spacing: 0.01em; 
+          margin: 4px 0 0;
         }
-        .proj-tag:hover { border-color: rgba(0,229,255,0.3); color: #00e5ff; }
-        .proj-btn {
-          display: inline-flex;
-          align-items: center;
+        .proj-tags-wrap {
+          display: flex;
+          flex-wrap: wrap;
           gap: 6px;
-          font-family: monospace;
-          font-size: 9px;
-          letter-spacing: 0.15em;
-          text-transform: uppercase;
-          color: #64748b;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
-          border-radius: 9999px;
-          padding: 7px 14px;
-          cursor: pointer;
-          transition: border-color 0.2s, color 0.2s;
-          align-self: flex-start;
+          padding-top: 12px;
           margin-top: auto;
         }
-        .proj-btn:hover { border-color: rgba(0,229,255,0.4); color: #00e5ff; }
-        .proj-grid {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: 16px;
-          width: 100%;
+        .proj-tag {
+          font-size: 10px;
+          color: #94a3b8;
+          background: rgba(255,255,255,0.02);
+          border: 1px solid rgba(255,255,255,0.05);
+          border-radius: 6px;
+          padding: 3px 7px;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          font-family: monospace;
+          transition: border-color 0.2s, color 0.2s, background 0.2s;
+          cursor: default;
+        }
+        .proj-tag:hover { border-color: rgba(0,229,255,0.3); color: #00e5ff; background: rgba(0,229,255,0.02); }
+        .icon-box {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 38px;
+          height: 38px;
+          border-radius: 10px;
+          background: rgba(255,255,255,0.02);
+          border: 1px solid rgba(255,255,255,0.05);
+          flex-shrink: 0;
+        }
+
+        /* ── Tablets ── */
+        @media (max-width: 1024px) {
+          .proj-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        /* ── Móviles Grandes ── */
+        @media (max-width: 768px) {
+          .proj-grid {
+            grid-template-columns: 1fr;
+          }
+          .proj-img-wrap,
+          .proj-img-placeholder {
+            height: 200px;
+          }
+        }
+        /* ── Móviles Pequeños ── */
+        @media (max-width: 640px) {
+          .proj-section {
+            padding: 60px 16px !important;
+          }
+          .proj-title-area {
+            margin-bottom: 34px !important;
+          }
+          .proj-title {
+            font-size: 18px !important;
+          }
         }
       `}</style>
 
-      <section id="proyectos" style={{ maxWidth: 768, width: '100%', margin: '0 auto', padding: '80px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <section
+        id="proyectos"
+        className="proj-section"
+        style={{ maxWidth: 1140, width: '100%', margin: '0 auto', padding: '100px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
 
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40 }}>
-  <h2 style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 20, color: '#ffffff', letterSpacing: '0.1em', display: 'flex', alignItems: 'center', gap: 10, margin: 0 }}>
-    <FolderGit2 size={25} color="#00e5ff" />
-    PROYECTOS
-  </h2>
-  <div style={{ width: 100, height: 2, background: 'linear-gradient(90deg, #00f5d4, #9333ea)', marginTop: 10, borderRadius: 2 }} />
-  
-  <p style={{ color: '#a3a3a3', fontSize: '12px', marginTop: 12, marginBottom: 0, textAlign: 'center', fontStyle: 'italic', maxWidth: '80%' }}>
-    * Toda la información y datos personales han sido anonimizados o eliminados para proteger la confidencialidad.
-  </p>
-</div>
-  <p style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 12, color: '#ffffff', letterSpacing: '0.05em', margin: 0, lineHeight: 1.4 }}></p>
+        <div className="proj-title-area" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 50 }}>
+          <h2 className="proj-title" style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 22, color: '#ffffff', letterSpacing: '0.12em', display: 'flex', alignItems: 'center', gap: 12, margin: 0 }}>
+            <FolderGit2 size={28} color="#00e5ff" />
+            PROYECTOS
+          </h2>
+          <div style={{ width: 120, height: 2, background: 'linear-gradient(90deg, #00f5d4, #00e5ff, #9333ea)', marginTop: 12, borderRadius: 2 }} />
+          <p style={{ color: '#94a3b8', fontSize: '13px', marginTop: 16, marginBottom: 0, textAlign: 'center', fontStyle: 'italic', maxWidth: '90%', lineHeight: 1.6 }}>
+            * Toda la información y datos personales han sido anonimizados o eliminados para proteger la confidencialidad.
+          </p>
+        </div>
+
         <div className="proj-grid">
           {PROYECTOS.map((proj, index) => {
             const currentSlide = getSlide(index)
             const hasImages = proj.imagenes.length > 0
+            const IconComponent = proj.icono || FolderGit2;
 
             return (
               <div key={index} className="proj-card">
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, transparent, ${proj.color}, transparent)`, opacity: 0.6 }} />
+                {/* Haz de luz de color dinámico superior */}
+                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: 1, background: `linear-gradient(90deg, transparent, ${proj.color}, transparent)`, opacity: 0.8, zIndex: 5 }} />
 
                 {/* Zona imagen */}
                 {hasImages ? (
@@ -337,25 +399,23 @@ export default function Projects() {
                       src={proj.imagenes[currentSlide]}
                       alt={`${proj.titulo} ${currentSlide + 1}`}
                       fill
-                      sizes="384px"
-                      className="object-cover object-top"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 360px"
+                      className="object-cover object-top transition-opacity duration-300"
+                      priority={index < 3}
                     />
 
-                    {/* Flechas */}
                     {proj.imagenes.length > 1 && (
                       <>
-                        <button className="slide-btn" style={{ left: 6 }} onClick={() => prevSlide(index, proj.imagenes.length)}>
-                          <svg viewBox="0 0 24 24" width={12} height={12} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="15 18 9 12 15 6"/>
+                        <button className="slide-btn" style={{ left: 10 }} onClick={() => prevSlide(index, proj.imagenes.length)}>
+                          <svg viewBox="0 0 24 24" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="15 18 9 12 15 6" />
                           </svg>
                         </button>
-                        <button className="slide-btn" style={{ right: 6 }} onClick={() => nextSlide(index, proj.imagenes.length)}>
-                          <svg viewBox="0 0 24 24" width={12} height={12} fill="none" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
-                            <polyline points="9 18 15 12 9 6"/>
+                        <button className="slide-btn" style={{ right: 10 }} onClick={() => nextSlide(index, proj.imagenes.length)}>
+                          <svg viewBox="0 0 24 24" width={14} height={14} fill="none" stroke="currentColor" strokeWidth={3} strokeLinecap="round" strokeLinejoin="round">
+                            <polyline points="9 18 15 12 9 6" />
                           </svg>
                         </button>
-
-                        {/* Dots */}
                         <div className="slide-dots">
                           {proj.imagenes.map((_, i) => (
                             <div
@@ -368,42 +428,44 @@ export default function Projects() {
                       </>
                     )}
 
-
-                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 40, background: 'linear-gradient(to top, #020b1e, transparent)' }} />
+                    <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: 40, background: 'linear-gradient(to top, #020b1e, transparent)', zIndex: 2 }} />
                   </div>
                 ) : (
-                  <div className="proj-img-placeholder" style={{ background: `radial-gradient(ellipse at 50% 120%, ${proj.color}0a, transparent 70%)`, height: 160, position: 'relative' }}>
+                  <div className="proj-img-placeholder" style={{ background: `radial-gradient(ellipse at 50% 120%, ${proj.color}15, transparent 70%)`, position: 'relative' }}>
                     <div className="proj-img-grid">
                       {Array.from({ length: 12 }).map((_, i) => (
                         <div key={i} style={{ background: proj.color }} />
                       ))}
                     </div>
-                    <FolderGit2 size={28} color={proj.color} style={{ opacity: 0.2, position: 'relative' }} />
+                    <IconComponent size={32} color={proj.color} style={{ opacity: 0.3, position: 'relative' }} />
                   </div>
                 )}
 
-                {/* Cuerpo */}
+                {/* Cuerpo de la tarjeta */}
                 <div className="proj-body">
-                  <div>
-                    <p style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 12, color: '#ffffff', letterSpacing: '0.05em', margin: 0, lineHeight: 1.4 }}>
-                      {proj.titulo}
-                    </p>
-                    <p style={{ fontFamily: 'monospace', fontSize: 10, color: proj.color, letterSpacing: '0.06em', margin: '3px 0 0', opacity: 0.8 }}>
-                      {proj.subtitulo}
-                    </p>
+                  <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                    <div className="icon-box">
+                      <IconComponent size={18} color={proj.color} style={{ opacity: 0.9 }} />
+                    </div>
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 13, color: '#ffffff', letterSpacing: '0.02em', margin: 0, lineHeight: 1.4 }}>
+                        {proj.titulo}
+                      </p>
+                      <p style={{ fontFamily: 'monospace', fontSize: 10, color: proj.color, letterSpacing: '0.06em', margin: '4px 0 0', opacity: 0.9, textTransform: 'uppercase' }}>
+                        {proj.subtitulo}
+                      </p>
+                    </div>
                   </div>
 
-                  <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#64748b', lineHeight: 1.7, letterSpacing: '0.02em', margin: 0 }}>
+                  <p className="proj-desc">
                     {proj.descripcion}
                   </p>
 
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: 5, paddingTop: 8, borderTop: '1px solid rgba(255,255,255,0.04)' }}>
+                  <div className="proj-tags-wrap" style={{ borderTop: '1px solid rgba(255,255,255,0.05)' }}>
                     {proj.tags.map((tag, tIndex) => (
                       <span key={tIndex} className="proj-tag">{tag}</span>
                     ))}
                   </div>
-
-                 
                 </div>
               </div>
             )

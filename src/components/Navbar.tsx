@@ -22,9 +22,7 @@ export default function Navbar() {
   }
 
   useEffect(() => {
-    // IntersectionObserver: detecta qué sección ocupa más pantalla
     const observers: IntersectionObserver[] = []
-
     const sectionVisibility: Record<string, number> = {}
 
     NAV_ITEMS.forEach(({ id }) => {
@@ -35,7 +33,6 @@ export default function Navbar() {
         (entries) => {
           entries.forEach((entry) => {
             sectionVisibility[id] = entry.intersectionRatio
-            // La sección con mayor ratio visible gana
             const mostVisible = Object.entries(sectionVisibility).reduce(
               (max, [key, ratio]) => (ratio > max.ratio ? { id: key, ratio } : max),
               { id: 'inicio', ratio: 0 }
@@ -67,62 +64,104 @@ export default function Navbar() {
   }, [])
 
   return (
-    <header className="fixed top-16 left-1/2 -translate-x-1/2 z-50 w-max max-w-[95vw]">
-      <div
-        className="relative rounded-full p-[1.5px]"
-        style={{ background: 'linear-gradient(90deg, #00f5d4, #00e5ff, #9333ea)' }}
-      >
+    <>
+      <style>{`
+        .nav-btn-label {
+          font-family: monospace;
+          font-size: 10px;
+          letter-spacing: 0.2em;
+          text-transform: uppercase;
+          color: #ffffff;
+          transition: opacity 0.3s;
+        }
+        .nav-separator {
+          color: rgba(255,255,255,0.12);
+          font-size: 18px;
+          user-select: none;
+        }
+        .nav-btn {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border-radius: 9999px;
+          transition: all 0.3s;
+          padding: 4px 55px;
+          width: 100%;
+          background: transparent;
+          border: none;
+          outline: none;
+          cursor: pointer;
+        }
+
+        @media (max-width: 640px) {
+          .nav-btn {
+            padding: 8px 10px;
+            min-width: unset;
+          }
+          .nav-btn-label {
+            display: none;
+          }
+          .nav-separator {
+            display: none;
+          }
+          .nav-icon {
+            margin-bottom: 0 !important;
+          }
+        }
+      `}</style>
+
+      <header className="fixed top-16 left-1/2 -translate-x-1/2 z-50 w-max max-w-[95vw]">
         <div
-          className="flex items-center rounded-full"
-          style={{ background: '#020b1e', padding: '2px 5px' }}
+          className="relative rounded-full p-[1.5px]"
+          style={{ background: 'linear-gradient(90deg, #00f5d4, #00e5ff, #9333ea)' }}
         >
-          <nav className="flex items-center gap-2 md:gap-4">
-            {NAV_ITEMS.map((item, index) => {
-              const Icon = item.icon
-              const isActive = activeSection === item.id
+          <div
+            className="flex items-center rounded-full"
+            style={{ background: '#020b1e', padding: '2px 5px' }}
+          >
+            <nav className="flex items-center gap-2 md:gap-4">
+              {NAV_ITEMS.map((item, index) => {
+                const Icon = item.icon
+                const isActive = activeSection === item.id
 
-              return (
-                <div key={item.id} className="flex items-center gap-2 md:gap-4">
-                  <button
-                    onClick={() => scrollToSection(item.id)}
-                    className="group flex flex-col items-center rounded-full transition-all duration-300"
-                    style={{ padding: '7px 20px', minWidth: '110px', background: 'transparent', border: 'none', outline: 'none', cursor: 'pointer' }}
-                  >
-                    <Icon
-                      style={{
-                        width: 26,
-                        height: 26,
-                        color: '#ffffff',
-                        opacity: isActive ? 1 : 0.4,
-                        marginBottom: 10,
-                        transition: 'opacity 0.3s, transform 0.3s',
-                      }}
-                    />
-                    <span
-                      style={{
-                        fontFamily: 'monospace',
-                        fontSize: 10,
-                        letterSpacing: '0.2em',
-                        textTransform: 'uppercase',
-                        color: '#ffffff',
-                        opacity: isActive ? 1 : 0.5,
-                        fontWeight: isActive ? 700 : 400,
-                        transition: 'opacity 0.3s',
-                      }}
+                return (
+                  <div key={item.id} className="flex items-center gap-2 md:gap-4">
+                    <button
+                      onClick={() => scrollToSection(item.id)}
+                      className="nav-btn"
                     >
-                      {item.label}
-                    </span>
-                  </button>
+                      <Icon
+                        className="nav-icon"
+                        style={{
+                          width: 22,
+                          height: 22,
+                          color: '#ffffff',
+                          opacity: isActive ? 1 : 0.4,
+                          marginBottom: 10,
+                          transition: 'opacity 0.3s, transform 0.3s',
+                        }}
+                      />
+                      <span
+                        className="nav-btn-label"
+                        style={{
+                          opacity: isActive ? 1 : 0.5,
+                          fontWeight: isActive ? 700 : 400,
+                        }}
+                      >
+                        {item.label}
+                      </span>
+                    </button>
 
-                  {index < NAV_ITEMS.length - 1 && (
-                    <span style={{ color: 'rgba(255,255,255,0.12)', fontSize: 18, userSelect: 'none' }}>|</span>
-                  )}
-                </div>
-              )
-            })}
-          </nav>
+                    {index < NAV_ITEMS.length - 1 && (
+                      <span className="nav-separator">|</span>
+                    )}
+                  </div>
+                )
+              })}
+            </nav>
+          </div>
         </div>
-      </div>
-    </header>
+      </header>
+    </>
   )
 }

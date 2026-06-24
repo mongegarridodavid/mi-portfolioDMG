@@ -7,17 +7,17 @@ export default function Contacto() {
   const [form, setForm] = useState({ nombre: '', email: '', mensaje: '' })
   const [enviado, setEnviado] = useState(false)
 
-const handleEnviar = () => {
-  const subject = encodeURIComponent(`Mensaje de Contacto de ${form.nombre}`)
-  const body = encodeURIComponent(`Hola soy: ${form.nombre}\nTe contacto desde el Email: ${form.email}\n\n${form.mensaje}`)
-  window.location.href = `mailto:mongegarridodavid@gmail.com?subject=${subject}&body=${body}`
-  setEnviado(true)
-  setTimeout(() => {
-    setModalOpen(false)
-    setEnviado(false)
-    setForm({ nombre: '', email: '', mensaje: '' })
-  }, 2000)
-}
+  const handleEnviar = () => {
+    const subject = encodeURIComponent(`Mensaje de Contacto de ${form.nombre}`)
+    const body = encodeURIComponent(`Hola soy: ${form.nombre}\nTe contacto desde el Email: ${form.email}\n\n${form.mensaje}`)
+    window.location.href = `mailto:mongegarridodavid@gmail.com?subject=${subject}&body=${body}`
+    setEnviado(true)
+    setTimeout(() => {
+      setModalOpen(false)
+      setEnviado(false)
+      setForm({ nombre: '', email: '', mensaje: '' })
+    }, 2000)
+  }
 
   return (
     <div>
@@ -60,26 +60,36 @@ const handleEnviar = () => {
           justify-content: center;
           flex-shrink: 0;
         }
-        .contact-btn {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          gap: 8px;
-          width: 100%;
-          margin-top: 24px;
-          padding: 13px;
-          border-radius: 12px;
-          border: 1px solid rgba(0,229,255,0.25);
-          background: rgba(0,229,255,0.05);
-          color: #00e5ff;
+        .contact-value {
           font-family: monospace;
-          font-size: 11px;
-          letter-spacing: 0.18em;
-          text-transform: uppercase;
-          cursor: pointer;
-          transition: background 0.2s, border-color 0.2s;
+          font-size: 12px;
+          color: #e2e8f0;
+          word-break: break-all;
         }
+        .contact-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 50%;
+  margin-top: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 13px;
+  border-radius: 12px;
+  border: 1px solid rgba(0,229,255,0.25);
+  background: rgba(0,229,255,0.05);
+  color: #00e5ff;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
         .contact-btn:hover { background: rgba(0,229,255,0.1); border-color: rgba(0,229,255,0.5); }
+
+        /* ── Modal ── */
         .modal-overlay {
           position: fixed;
           inset: 0;
@@ -88,30 +98,32 @@ const handleEnviar = () => {
           display: flex;
           align-items: center;
           justify-content: center;
-          padding: 24px;
+          padding: 16px;
           backdrop-filter: blur(4px);
         }
         .modal-box {
           position: relative;
           background: #020b1e;
-          border: 1px solid rgba(0,229,255,0.2);
+          border: 1px solid rgb(142, 244, 255);
           border-radius: 20px;
           padding: 32px;
           width: 100%;
           max-width: 480px;
           overflow: hidden;
+          max-height: 90vh;
+          overflow-y: auto;
         }
         .modal-box::before {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
           height: 1px;
-          background: linear-gradient(90deg, transparent, #00e5ff, transparent);
+          background: linear(90deg, transparent, #00e5ff, transparent);
         }
         .modal-input {
           width: 100%;
-          background: rgba(255,255,255,0.03);
-          border: 1px solid rgba(255,255,255,0.08);
+          background: rgba(207, 207, 207, 0.37);
+          border: 1px solid rgba(105, 245, 255, 0.99);
           border-radius: 10px;
           padding: 11px 14px;
           font-family: monospace;
@@ -122,8 +134,8 @@ const handleEnviar = () => {
           box-sizing: border-box;
           resize: none;
         }
-        .modal-input::placeholder { color: #334155; }
-        .modal-input:focus { border-color: rgba(0,229,255,0.35); }
+        .modal-input::placeholder { color: #ffffff; }
+        .modal-input:focus { border-color: rgb(132, 105, 255); }
         .modal-send {
           display: flex;
           align-items: center;
@@ -157,9 +169,27 @@ const handleEnviar = () => {
           transition: color 0.2s, border-color 0.2s;
         }
         .modal-close:hover { color: #ffffff; border-color: rgba(255,255,255,0.2); }
+
+        /* ── Mobile ── */
+        @media (max-width: 640px) {
+          .contact-section {
+            padding: 60px 16px !important;
+          }
+          .contact-card {
+            padding: 20px 16px;
+          }
+          .modal-box {
+            padding: 24px 20px;
+            border-radius: 16px;
+          }
+        }
       `}</style>
 
-      <section id="contacto" style={{ maxWidth: 768, width: '100%', margin: '0 auto', padding: '80px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+      <section
+        id="contacto"
+        className="contact-section"
+        style={{ maxWidth: 768, width: '100%', margin: '0 auto', padding: '80px 24px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+      >
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginBottom: 40 }}>
           <h2 style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 20, color: '#ffffff', letterSpacing: '0.1em', display: 'flex', alignItems: 'center', gap: 10, margin: 0 }}>
@@ -170,15 +200,17 @@ const handleEnviar = () => {
         </div>
 
         <div className="contact-card">
-          <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#ffffff', letterSpacing: '0.18em', textTransform: 'uppercase', margin: '0 0 20px' }}> disponible para proyectos y oportunidades</p>
+          <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#ffffff', letterSpacing: '0.18em', textTransform: 'uppercase', margin: '0 0 20px' }}>
+            disponible para proyectos y oportunidades
+          </p>
 
           <div className="contact-row">
             <div className="contact-icon-wrap">
               <Mail size={15} color="#00e5ff" />
             </div>
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#818181', letterSpacing: '0.15em', textTransform: 'uppercase', margin: '0 0 3px' }}>Email</p>
-                mongegarridodavid@gmail.com
+              <span className="contact-value">mongegarridodavid@gmail.com</span>
             </div>
           </div>
 
@@ -186,13 +218,11 @@ const handleEnviar = () => {
             <div className="contact-icon-wrap">
               <Phone size={15} color="#00f5d4" />
             </div>
-            <div style={{ flex: 1 }}>
+            <div style={{ flex: 1, minWidth: 0 }}>
               <p style={{ fontFamily: 'monospace', fontSize: 9, color: '#818181', letterSpacing: '0.15em', textTransform: 'uppercase', margin: '0 0 3px' }}>Teléfono</p>
-                +34 666638972
+              <span className="contact-value">+34 666638972</span>
             </div>
           </div>
-
-          
 
           <button className="contact-btn" onClick={() => setModalOpen(true)}>
             <Send size={13} />
@@ -212,7 +242,7 @@ const handleEnviar = () => {
               Enviar mensaje
             </p>
             <p style={{ fontFamily: 'monospace', fontSize: 10, color: '#334155', letterSpacing: '0.1em', textTransform: 'uppercase', margin: '0 0 24px' }}>
-               se abrirá Gmail con los datos
+              se abrirá Gmail con los datos
             </p>
 
             {enviado ? (
